@@ -7,22 +7,24 @@ import { IListItems } from '../../interface/IListItems.interface';
   standalone: true,
   imports: [InputAddItemComponent],
   templateUrl: './list.component.html',
-  styleUrl: './list.component.scss'
+  styleUrl: './list.component.scss',
 })
 export class ListComponent {
-
   public addItem = signal(true);
 
-  #setListItems = signal<IListItems[]>([this.#parseItems()]);
-  getListItems = this.#setListItems.asReadonly();
+  #setListItems = signal<IListItems[]>(this.#parseItems());
+  public getItemsList = this.#setListItems.asReadonly();
 
-  #parseItems(){
+  #parseItems() {
     return JSON.parse(localStorage.getItem('@my-list') || '[]');
   }
 
-  public getInputAndAddItem(value: IListItems){
+  public getInputAndAddItem(value: IListItems) {
     localStorage.setItem(
-      '@my-list',JSON.stringify([value])
-    )
+      '@my-list',
+      JSON.stringify([...this.#setListItems(), value])
+    );
+
+    return this.#setListItems.set(this.#parseItems());
   }
 }

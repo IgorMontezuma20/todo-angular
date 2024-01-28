@@ -1,18 +1,30 @@
-<div>
-  <label for="activityInput" class="input-label-text">
-    <input
-      id="activityInput"
-      type="text"
-      placeholder="Adicione uma nova tarefa..."
-      autofocus
-      #inputText
-      (keyup.enter)="focusAndAddItem(inputText.value)"
-    />
+<header
+  [ngClass]="{
+    'has-items': inputItemsList.length
+  }"
+>
+  @if(inputItemsList.length){
+  <h1>Minha Lista</h1>
+  }
+  <div>
+    <label for="activityInput" class="input-label-text">
+      <input
+        id="activityInput"
+        type="text"
+        placeholder="Adicione uma nova tarefa..."
+        autofocus
+        #inputText
+        (keyup.enter)="focusAndAddItem(inputText.value)"
+        [ngClass]="{
+          'remove-margin-bottom': inputItemsList.length
+        }"
+      />
 
-    <button
-      class="btn btn-primary-circle"
-      title="Adicionar uma nova tarefa"
-      (click)="focusAndAddItem(inputText.value)"
-    ></button>
-  </label>
-</div>
+      <button
+        class="btn btn-primary-circle"
+        title="Adicionar uma nova tarefa"
+        (click)="focusAndAddItem(inputText.value)"
+      ></button>
+    </label>
+  </div>
+</header>
