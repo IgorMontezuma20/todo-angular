@@ -5,8 +5,11 @@
     loading="eager"
   />
 
-  <button class="btn btn-primary">Crie uma lista de tarefas</button>
-
+  @if(addItem()){
+  <button class="btn btn-primary" (click)="addItem.set(false)">
+    Crie uma lista de tarefas
+  </button>
+  }@else {
   <div>
     <label for="activityInput" class="input-label-text">
       <input
@@ -22,4 +25,5 @@
       ></button>
     </label>
   </div>
+  }
 </div>
