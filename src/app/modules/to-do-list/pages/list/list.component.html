@@ -22,4 +22,10 @@
   [inputItemsList]="getItemsList()"
   (outputAddListItem)="getInputAndAddItem($event)"
 />
+
+<main class="container"></main>
+
+<footer>
+  <button class="btn btn-danger" (click)="deleteAllItems()">Remover todos itens</button>
+</footer>
 }
