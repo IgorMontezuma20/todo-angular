@@ -24,8 +24,16 @@
 />
 
 <main class="container">
+  @if(itemsListStage('pending').length){
   <h2>Pendências</h2>
-  <app-input-list-item [inputItemsList]="getItemsList()" />
+  <app-input-list-item [inputItemsList]="itemsListStage('pending')" />
+  }
+
+  @if(itemsListStage('completed').length){
+    <h2>Finalizadas</h2>
+    <app-input-list-item [inputItemsList]="itemsListStage('completed')" />
+  }
+
 </main>
 
 <footer>
