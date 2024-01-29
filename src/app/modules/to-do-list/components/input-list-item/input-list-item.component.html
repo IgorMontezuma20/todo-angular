@@ -16,6 +16,10 @@
     (input)="updateItemText(item.id, inputValue.value)"
   />
 
-  <button class="btn btn-danger-circle" title="Remover item"></button>
+  <button
+    class="btn btn-danger-circle"
+    title="Remover item"
+    (click)="deleteItem(item.id)"
+  ></button>
 </label>
 }
