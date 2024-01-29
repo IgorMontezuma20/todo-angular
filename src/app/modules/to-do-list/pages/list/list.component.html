@@ -23,9 +23,14 @@
   (outputAddListItem)="getInputAndAddItem($event)"
 />
 
-<main class="container"></main>
+<main class="container">
+  <h2>Pendências</h2>
+  <app-input-list-item [inputItemsList]="getItemsList()" />
+</main>
 
 <footer>
-  <button class="btn btn-danger" (click)="deleteAllItems()">Remover todos itens</button>
+  <button class="btn btn-danger" (click)="deleteAllItems()">
+    Remover todos itens
+  </button>
 </footer>
 }
