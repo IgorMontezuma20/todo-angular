@@ -89,7 +89,7 @@ export class ListComponent {
       text: 'Você não poderá reverter isso!',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sim, removagiyt o item',
+      confirmButtonText: 'Sim, remova o item',
     }).then((result) => {
       if (result.isConfirmed) {
         this.#setListItems.update((oldValue: IListItems[]) => {
